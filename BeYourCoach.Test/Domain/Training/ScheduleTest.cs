@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using BeYourCoach.Common.Json;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training;
@@ -25,14 +24,6 @@ namespace BeYourCoach.Test.Domain.Training
         }
 
         [Test]
-        public void CanCreateWeekSchedules()
-        {
-            var schedule = new Schedule(new Athlete(new FullName("Pieter", "Deparcq")), "Jaarplan Pieter", new LocalDate(2016, 10, 31));
-            5.Times(w => schedule.ScheduleWeek(w));
-            schedule.PrettyPrint();
-        }
-
-        [Test]
         public void CanScheduleAndReScheduleTrainings()
         {
             var schedule = new Schedule(new Athlete(new FullName("Pieter", "Deparcq")), "Jaarplan Pieter", new LocalDate(2016, 10, 31));
@@ -55,8 +46,6 @@ namespace BeYourCoach.Test.Domain.Training
 
             Assert.IsNotNull(schedule);
             Assert.AreEqual("Jaarplan Pieter", schedule.Name);
-            Assert.AreEqual(2, schedule.WeekSchedules.Count);
-            Assert.IsNotNull(schedule.GetWeekSchedule(0).Schedule);
             Assert.AreEqual(3, schedule.Trainings.Count);
         }
     }
