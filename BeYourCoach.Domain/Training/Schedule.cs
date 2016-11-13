@@ -16,7 +16,9 @@ namespace BeYourCoach.Domain.Training
         {
             Check.If(athlete).IsNotNull();
             Check.If(name).IsNotNullOrEmpty();
-            Check.If(startDate.IsoDayOfWeek == IsoDayOfWeek.Monday);
+
+            if(startDate.IsoDayOfWeek != IsoDayOfWeek.Monday)
+                throw new ArgumentException("Schedule should start on Monday", nameof(startDate));
 
             Id = Guid.NewGuid();
             AthleteId = athlete.Id;
