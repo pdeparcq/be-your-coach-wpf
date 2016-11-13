@@ -1,6 +1,6 @@
-﻿using System.Security.Policy;
+﻿using System;
+using BeYourCoach.Common.Json;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace BeYourCoach.Test
 {
@@ -8,7 +8,15 @@ namespace BeYourCoach.Test
     {
         public static void PrettyPrint(this object o)
         {
-            System.Console.Out.WriteLine(JsonConvert.SerializeObject(o, Formatting.Indented, new StringEnumConverter()));
+            Console.Out.WriteLine(o.Serialize(Formatting.Indented));
+        }
+
+        public static void Times(this int count, Action<int> action)
+        {
+            for (var i = 0; i < count; i++)
+            {
+                action(i);
+            }
         }
     }
 }
