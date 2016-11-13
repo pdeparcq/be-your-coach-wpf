@@ -15,22 +15,22 @@ namespace BeYourCoach.Domain.Training
         [JsonConstructor]
         protected Training() { }
 
-        internal Training(WeekSchedule weekSchedule, IsoDayOfWeek dayOfWeek, string discipline)
+        internal Training(int week, IsoDayOfWeek dayOfWeek, string discipline)
         {
-            Check.If(weekSchedule).IsNotNull();
+            Check.If(week).IsGreaterOrEqual(0);
             Check.If(discipline).IsNotNullOrEmpty();
 
             Id = Guid.NewGuid();
-            Week = weekSchedule.Week;
+            Week = week;
             DayOfWeek = dayOfWeek;
             Discipline = discipline;
         }
 
-        internal void ReSchedule(WeekSchedule weekSchedule, IsoDayOfWeek dayOfWeek)
+        public void ReSchedule(int week, IsoDayOfWeek dayOfWeek)
         {
-            Check.If(weekSchedule).IsNotNull();
+            Check.If(week).IsGreaterOrEqual(0);
 
-            Week = weekSchedule.Week;
+            Week = week;
             DayOfWeek = dayOfWeek;
         }
     }

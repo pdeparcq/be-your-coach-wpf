@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using BeYourCoach.Domain.Registration;
 using Conditions.Guards;
 using Newtonsoft.Json;
@@ -34,22 +33,10 @@ namespace BeYourCoach.Domain.Training
             Trainings = new List<Training>();
         }
 
-        public WeekSchedule GetWeekSchedule(int week)
-        {
-            return new WeekSchedule(this, week);
-        }
-
         public Training ScheduleTraining(int week, IsoDayOfWeek dayOfWeek, string discipline)
         {
-            var training = new Training(GetWeekSchedule(week), dayOfWeek, discipline);
+            var training = new Training(week , dayOfWeek, discipline);
             Trainings.Add(training);
-            return training;
-        }
-
-        public Training ReScheduleTraining(Guid trainingId, int week, IsoDayOfWeek dayOfWeek)
-        {
-            var training = Trainings.Single(t => t.Id == trainingId);
-            training.ReSchedule(GetWeekSchedule(week), dayOfWeek);
             return training;
         }
     }

@@ -30,7 +30,7 @@ namespace BeYourCoach.Test.Domain.Training
             schedule.ScheduleTraining(0, IsoDayOfWeek.Monday, "running");
             schedule.ScheduleTraining(0, IsoDayOfWeek.Thursday, "cycling");
             var training = schedule.ScheduleTraining(3, IsoDayOfWeek.Saturday, "swimming");
-            schedule.ReScheduleTraining(training.Id, 2, IsoDayOfWeek.Sunday);
+            training.ReSchedule(2, IsoDayOfWeek.Sunday);
             schedule.PrettyPrint();
         }
 

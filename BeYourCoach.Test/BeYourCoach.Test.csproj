@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Training\ScheduleTest.cs" />
+    <Compile Include="Presentation\Training\WeekScheduleViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestExtensions.cs" />
   </ItemGroup>
@@ -68,6 +69,10 @@
     <ProjectReference Include="..\BeYourCoach.Domain\BeYourCoach.Domain.csproj">
       <Project>{8bbce62d-c18e-478e-9c1a-a3baba4dc7b8}</Project>
       <Name>BeYourCoach.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeYourCoach.Presentation\BeYourCoach.Presentation.csproj">
+      <Project>{e4fe0e1a-5780-49bf-a63e-f7974b2a6a89}</Project>
+      <Name>BeYourCoach.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
