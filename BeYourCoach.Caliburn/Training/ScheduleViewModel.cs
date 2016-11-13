@@ -4,7 +4,7 @@ using BeYourCoach.Domain.Training;
 using Conditions.Guards;
 using Newtonsoft.Json;
 
-namespace BeYourCoach.Presentation.Training
+namespace BeYourCoach.Caliburn.Training
 {
     public class ScheduleViewModel
     {

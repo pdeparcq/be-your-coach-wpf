@@ -1,4 +1,4 @@
-﻿using BeYourCoach.Presentation.Training;
+﻿using BeYourCoach.Caliburn.Training;
 using BeYourCoach.Test.Domain.Training;
 using NUnit.Framework;
 

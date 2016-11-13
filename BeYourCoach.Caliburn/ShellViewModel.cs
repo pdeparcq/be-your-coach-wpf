@@ -1,31 +1,17 @@
-﻿using System.Windows;
+﻿using BeYourCoach.Caliburn.Training;
+using BeYourCoach.Domain.Registration;
+using BeYourCoach.Domain.Training;
+
 using Caliburn.Micro;
+using NodaTime;
 
 namespace BeYourCoach.Caliburn
 {
-    public class ShellViewModel : PropertyChangedBase
+    public class ShellViewModel : Conductor<object>.Collection.OneActive
     {
-        string name;
-
-        public string Name
+        public ShellViewModel()
         {
-            get { return name; }
-            set
-            {
-                name = value;
-                NotifyOfPropertyChange(() => Name);
-                NotifyOfPropertyChange(() => CanSayHello);
-            }
-        }
-
-        public bool CanSayHello
-        {
-            get { return !string.IsNullOrWhiteSpace(Name); }
-        }
-
-        public void SayHello()
-        {
-            MessageBox.Show(string.Format("Hello {0}!", Name)); //Don't do this in real life :)
+            ActiveItem = new ScheduleViewModel(new Schedule(new Athlete(new FullName("Pieter", "Deparcq")), "Jaarplan Pieter", new LocalDate(2016, 10, 31)));
         }
     }
 }
