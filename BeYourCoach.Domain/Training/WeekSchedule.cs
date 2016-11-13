@@ -16,7 +16,7 @@ namespace BeYourCoach.Domain.Training
         [JsonConstructor]
         protected WeekSchedule() { }
 
-        public WeekSchedule(Schedule schedule, int week)
+        internal WeekSchedule(Schedule schedule, int week)
         {
             Check.If(schedule).IsNotNull();
             Check.If(week).IsGreaterOrEqual(0);

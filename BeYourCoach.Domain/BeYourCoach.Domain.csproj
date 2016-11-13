@@ -60,6 +60,7 @@
     <Compile Include="Registration\Athlete.cs" />
     <Compile Include="Registration\FullName.cs" />
     <Compile Include="Training\Schedule.cs" />
+    <Compile Include="Training\Training.cs" />
     <Compile Include="Training\WeekSchedule.cs" />
   </ItemGroup>
   <ItemGroup>
