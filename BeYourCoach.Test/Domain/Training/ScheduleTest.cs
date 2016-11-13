@@ -37,16 +37,21 @@ namespace BeYourCoach.Test.Domain.Training
         [Test]
         public void CanSerializeAndDeserializeToAndFromJson()
         {
-           
-            var schedule = new Schedule(new Athlete(new FullName("Pieter", "Deparcq")), "Jaarplan Pieter", new LocalDate(2016, 10, 31));
-            schedule.ScheduleTraining(0, IsoDayOfWeek.Monday, "running");
-            schedule.ScheduleTraining(0, IsoDayOfWeek.Thursday, "cycling");
-            schedule.ScheduleTraining(3, IsoDayOfWeek.Saturday, "swimming");
+            var schedule = CreateTestSchedule();
             schedule = schedule.Serialize().Deserialize<Schedule>();
 
             Assert.IsNotNull(schedule);
             Assert.AreEqual("Jaarplan Pieter", schedule.Name);
             Assert.AreEqual(3, schedule.Trainings.Count);
+        }
+
+        public static Schedule CreateTestSchedule()
+        {
+            var schedule = new Schedule(new Athlete(new FullName("Pieter", "Deparcq")), "Jaarplan Pieter", new LocalDate(2016, 10, 31));
+            schedule.ScheduleTraining(0, IsoDayOfWeek.Monday, "running");
+            schedule.ScheduleTraining(0, IsoDayOfWeek.Thursday, "cycling");
+            schedule.ScheduleTraining(3, IsoDayOfWeek.Saturday, "swimming");
+            return schedule;
         }
     }
 }

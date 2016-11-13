@@ -1,11 +1,13 @@
 ﻿using BeYourCoach.Domain.Training;
 using Conditions.Guards;
+using Newtonsoft.Json;
 using NodaTime;
 
 namespace BeYourCoach.Presentation.Training
 {
     public class WeekScheduleViewModel
     {
+        [JsonIgnore]
         public Schedule Schedule { get; private set; }
         public int Week { get; private set; }
         public int WeekOfWeekYear => StartDate.WeekOfWeekYear;
