@@ -104,6 +104,10 @@
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShellViewModel.cs" />
+    <Compile Include="Training\DayScheduleView.xaml.cs">
+      <DependentUpon>DayScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Training\DayScheduleViewModel.cs" />
     <Compile Include="Training\ScheduleView.xaml.cs">
       <DependentUpon>ScheduleView.xaml</DependentUpon>
     </Compile>
@@ -144,6 +148,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Training\DayScheduleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

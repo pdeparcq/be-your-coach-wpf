@@ -5,7 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel>
-        <Label Name="Week"></Label>
-    </StackPanel>
+    <Border BorderThickness="1" BorderBrush="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label HorizontalAlignment="Center" FontSize="20" Name="Title"></Label>
+            <ContentControl Grid.Row="1" Name="Monday"></ContentControl>
+            <ContentControl Grid.Row="2" Name="Tuesday"></ContentControl>
+            <ContentControl Grid.Row="3" Name="Wednesday"></ContentControl>
+            <ContentControl Grid.Row="4" Name="Thursday"></ContentControl>
+            <ContentControl Grid.Row="5" Name="Friday"></ContentControl>
+            <ContentControl Grid.Row="6" Name="Saturday"></ContentControl>
+            <ContentControl Grid.Row="7" Name="Sunday"></ContentControl>
+        </Grid>
+    </Border>
 </UserControl>
