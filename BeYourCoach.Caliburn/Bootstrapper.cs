@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using Autofac;
 using Caliburn.Micro.Autofac;
 
@@ -11,10 +12,7 @@ namespace BeYourCoach.Caliburn
             Initialize();
         }
 
-        protected override void ConfigureContainer(ContainerBuilder builder)
-        {
-            
-        }
+        protected override void ConfigureContainer(ContainerBuilder builder) {}
 
         protected override void ConfigureBootstrapper()
         {
@@ -24,7 +22,14 @@ namespace BeYourCoach.Caliburn
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<ShellViewModel>();
+            DisplayRootViewFor<ShellViewModel>(
+                new Dictionary<string, object>
+                {
+                    {"SizeToContent", SizeToContent.Manual},
+                    {"Height", 600},
+                    {"Width", 1024},
+                }
+            );
         }
     }
 }
