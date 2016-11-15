@@ -17,12 +17,17 @@ namespace BeYourCoach.Caliburn.Training
             Check.If(schedule).IsNotNull();
 
             Schedule = schedule;
-
+            SelectedWeekSchedule = WeekSchedules.ElementAt(0);
         }
 
         public string Name => Schedule.Name;
 
-        public ICollection<WeekScheduleViewModel> WeekSchedules => new int[52].Select((n, i) => new WeekScheduleViewModel(Schedule, i)).ToList();
+        private ICollection<WeekScheduleViewModel> _weekSchedules;
+
+        public ICollection<WeekScheduleViewModel> WeekSchedules
+        {
+            get { return _weekSchedules ?? (_weekSchedules = new int[52].Select((n, i) => new WeekScheduleViewModel(Schedule, i)).ToList()); }   
+        }
 
         public WeekScheduleViewModel SelectedWeekSchedule
         {
