@@ -108,6 +108,10 @@
       <DependentUpon>DayScheduleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Training\DayScheduleViewModel.cs" />
+    <Compile Include="Training\DayTrainingView.xaml.cs">
+      <DependentUpon>DayTrainingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Training\DayTrainingViewModel.cs" />
     <Compile Include="Training\ScheduleView.xaml.cs">
       <DependentUpon>ScheduleView.xaml</DependentUpon>
     </Compile>
@@ -152,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Training\DayScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Training\DayTrainingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
