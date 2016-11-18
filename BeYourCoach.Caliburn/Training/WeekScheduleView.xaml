@@ -5,28 +5,38 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Border BorderThickness="1" BorderBrush="Black">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Border BorderBrush="Black" BorderThickness="1" Background="LightGray">
-                <Label HorizontalAlignment="Center" FontSize="16" Name="Title" ></Label>
-            </Border>
-            <ContentControl Grid.Row="1" Name="Monday"></ContentControl>
-            <ContentControl Grid.Row="2" Name="Tuesday"></ContentControl>
-            <ContentControl Grid.Row="3" Name="Wednesday"></ContentControl>
-            <ContentControl Grid.Row="4" Name="Thursday"></ContentControl>
-            <ContentControl Grid.Row="5" Name="Friday"></ContentControl>
-            <ContentControl Grid.Row="6" Name="Saturday"></ContentControl>
-            <ContentControl Grid.Row="7" Name="Sunday"></ContentControl>
-        </Grid>
-    </Border>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Background="LightGray">
+            <Label HorizontalAlignment="Center" FontSize="16" Name="Title" ></Label>
+        </Border>
+        <ContentControl Grid.Row="1" Name="Monday"></ContentControl>
+        <Border Grid.Row="2" Height="1" Background="LightGray"></Border>
+        <ContentControl Grid.Row="3" Name="Tuesday"></ContentControl>
+        <Border Grid.Row="4" Height="1" Background="LightGray"></Border>
+        <ContentControl Grid.Row="5" Name="Wednesday"></ContentControl>
+        <Border Grid.Row="6" Height="1" Background="LightGray"></Border>
+        <ContentControl Grid.Row="7" Name="Thursday"></ContentControl>
+        <Border Grid.Row="8" Height="1" Background="LightGray"></Border>
+        <ContentControl Grid.Row="9" Name="Friday"></ContentControl>
+        <Border Grid.Row="10" Height="1" Background="LightGray"></Border>
+        <ContentControl Grid.Row="11" Name="Saturday"></ContentControl>
+        <Border Grid.Row="12" Height="1" Background="LightGray"></Border>
+        <ContentControl Grid.Row="13" Name="Sunday"></ContentControl>
+    </Grid>
 </UserControl>
