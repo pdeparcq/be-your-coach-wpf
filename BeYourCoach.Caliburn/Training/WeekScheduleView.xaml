@@ -18,7 +18,7 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <Border BorderBrush="Black" BorderThickness="1" Background="LightGray">
-                <Label HorizontalAlignment="Center" FontSize="20" Name="Title" ></Label>
+                <Label HorizontalAlignment="Center" FontSize="16" Name="Title" ></Label>
             </Border>
             <ContentControl Grid.Row="1" Name="Monday"></ContentControl>
             <ContentControl Grid.Row="2" Name="Tuesday"></ContentControl>
