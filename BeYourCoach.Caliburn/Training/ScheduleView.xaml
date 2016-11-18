@@ -3,17 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel LastChildFill="True">
         <Border DockPanel.Dock="Top" Background="LightGray">
             <Label Name="Name" FontSize="20" HorizontalContentAlignment="Center"></Label>
         </Border>
-        <DataGrid DockPanel.Dock="Left" Name="WeekSchedules" AutoGenerateColumns="False" SelectedItem="{Binding SelectedWeekSchedule}" SelectionMode="Single">
+        <DataGrid 
+            DockPanel.Dock="Left" 
+            Name="WeekSchedules" 
+            AutoGenerateColumns="False" 
+            SelectedItem="{Binding SelectedWeekSchedule}" 
+            SelectionMode="Single" 
+            GridLinesVisibility="Vertical"
+            VerticalGridLinesBrush="LightGray"
+            AlternationCount="2"
+            AlternatingRowBackground="WhiteSmoke"
+            CanUserResizeRows="False"
+            CanUserReorderColumns="False"
+            CanUserSortColumns="False"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            RowHeaderWidth="0"
+            >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding WeekOfWeekYear}" IsReadOnly="True" Header="Week" />
                 <DataGridTextColumn Binding="{Binding StartDate, StringFormat=dd-MM}" IsReadOnly="True" Header="StartDate" />
                 <DataGridTextColumn Binding="{Binding EndDate, StringFormat=dd-MM}" IsReadOnly="True" Header="EndDate" />
+                <DataGridTemplateColumn IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="TODO"></Label>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <ContentControl Name="ActiveItem"></ContentControl>
