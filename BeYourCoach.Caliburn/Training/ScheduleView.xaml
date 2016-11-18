@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel LastChildFill="True">
-        <Border DockPanel.Dock="Top" Background="AliceBlue">
+        <Border DockPanel.Dock="Top" Background="LightGray">
             <Label Name="Name" FontSize="20" HorizontalContentAlignment="Center"></Label>
         </Border>
         <DataGrid DockPanel.Dock="Left" Name="WeekSchedules" AutoGenerateColumns="False" SelectedItem="{Binding SelectedWeekSchedule}" SelectionMode="Single">

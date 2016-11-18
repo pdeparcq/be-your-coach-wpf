@@ -22,8 +22,8 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Background="LightGray">
-            <Label HorizontalAlignment="Center" FontSize="16" Name="Title" ></Label>
+        <Border Background="Gray">
+            <Label HorizontalAlignment="Center" Foreground="White" FontSize="16" Name="Title" ></Label>
         </Border>
         <ContentControl Grid.Row="1" Name="Monday"></ContentControl>
         <Border Grid.Row="2" Height="1" Background="LightGray"></Border>
