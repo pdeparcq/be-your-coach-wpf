@@ -10,34 +10,20 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Border Background="Gray">
             <Label HorizontalAlignment="Center" Foreground="White" FontSize="16" Name="Title" ></Label>
         </Border>
-        <ContentControl Grid.Row="1" Name="Monday"></ContentControl>
-        <Border Grid.Row="2" Height="1" Background="LightGray"></Border>
-        <ContentControl Grid.Row="3" Name="Tuesday"></ContentControl>
-        <Border Grid.Row="4" Height="1" Background="LightGray"></Border>
-        <ContentControl Grid.Row="5" Name="Wednesday"></ContentControl>
-        <Border Grid.Row="6" Height="1" Background="LightGray"></Border>
-        <ContentControl Grid.Row="7" Name="Thursday"></ContentControl>
-        <Border Grid.Row="8" Height="1" Background="LightGray"></Border>
-        <ContentControl Grid.Row="9" Name="Friday"></ContentControl>
-        <Border Grid.Row="10" Height="1" Background="LightGray"></Border>
-        <ContentControl Grid.Row="11" Name="Saturday"></ContentControl>
-        <Border Grid.Row="12" Height="1" Background="LightGray"></Border>
-        <ContentControl Grid.Row="13" Name="Sunday"></ContentControl>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+                <ContentControl Name="Monday"></ContentControl>
+                <ContentControl Name="Tuesday"></ContentControl>
+                <ContentControl Name="Wednesday"></ContentControl>
+                <ContentControl Name="Thursday"></ContentControl>
+                <ContentControl Name="Friday"></ContentControl>
+                <ContentControl Name="Saturday"></ContentControl>
+                <ContentControl Name="Sunday"></ContentControl>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

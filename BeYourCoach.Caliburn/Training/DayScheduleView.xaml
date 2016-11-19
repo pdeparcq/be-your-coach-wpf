@@ -33,9 +33,26 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <ContentControl cal:View.Model="{Binding}" Margin="2"></ContentControl>
+                    <ContentControl cal:View.Model="{Binding}" Margin="2" Height="100"></ContentControl>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
+            <ItemsControl.Style>
+                <Style TargetType="ItemsControl">
+                    <Style.Triggers>
+                        <Trigger Property="HasItems" Value="false">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border Background="Azure">
+                                            <Label Content="REST" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ItemsControl.Style>
         </ItemsControl>
     </Grid>
 </UserControl>
