@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using BeYourCoach.Domain.Training;
 using Caliburn.Micro;
 using Conditions.Guards;
 using Newtonsoft.Json;
+using NodaTime;
 
 namespace BeYourCoach.Caliburn.Training
 {
@@ -17,22 +17,18 @@ namespace BeYourCoach.Caliburn.Training
             Check.If(schedule).IsNotNull();
 
             Schedule = schedule;
-            SelectedWeekSchedule = WeekSchedules.ElementAt(0);
         }
 
         public string Name => Schedule.Name;
 
-        private ICollection<WeekScheduleViewModel> _weekSchedules;
-
-        public ICollection<WeekScheduleViewModel> WeekSchedules
+        protected override void OnActivate()
         {
-            get { return _weekSchedules ?? (_weekSchedules = new int[52].Select((n, i) => new WeekScheduleViewModel(Schedule, i)).ToList()); }   
-        }
-
-        public WeekScheduleViewModel SelectedWeekSchedule
-        {
-            get { return ActiveItem; }
-            set { ActiveItem = value; }
+            base.OnActivate();
+            for (var w = 0; w < 52; w++)
+            {
+                ActivateItem(new WeekScheduleViewModel(Schedule, w));
+            }
+            ActiveItem = Items.SingleOrDefault(ws => ws.WeekOfWeekYear == SystemClock.Instance.Now.InUtc().WeekOfWeekYear);
         }
     }
 }

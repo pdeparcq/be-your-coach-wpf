@@ -12,9 +12,8 @@
         </Border>
         <DataGrid 
             DockPanel.Dock="Left" 
-            Name="WeekSchedules" 
+            Name="Items" 
             AutoGenerateColumns="False" 
-            SelectedItem="{Binding SelectedWeekSchedule}" 
             SelectionMode="Single" 
             GridLinesVisibility="Vertical"
             VerticalGridLinesBrush="LightGray"
