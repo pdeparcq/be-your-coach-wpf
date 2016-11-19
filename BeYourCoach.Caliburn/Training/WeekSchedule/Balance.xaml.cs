@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BeYourCoach.Caliburn.Training
+namespace BeYourCoach.Caliburn.Training.WeekSchedule
 {
     /// <summary>
-    /// Interaction logic for WeekScheduleView.xaml
+    /// Interaction logic for Balance.xaml
     /// </summary>
-    public partial class WeekScheduleView : UserControl
+    public partial class Balance : UserControl
     {
-        public WeekScheduleView()
+        public Balance()
         {
             InitializeComponent();
         }

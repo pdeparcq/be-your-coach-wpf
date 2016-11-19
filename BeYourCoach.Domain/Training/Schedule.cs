@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BeYourCoach.Domain.Registration;
+using BeYourCoach.Domain.Training.Events;
 using Conditions.Guards;
 using Newtonsoft.Json;
 using NodaTime;
@@ -14,6 +15,8 @@ namespace BeYourCoach.Domain.Training
         public string Name { get; private set; }
         public LocalDate StartDate { get; private set; }
         public ICollection<Training> Trainings { get; private set; }
+
+        public event EventHandler<TrainingScheduled> TrainingScheduled;
 
         [JsonConstructor]
         protected Schedule() { }
@@ -37,6 +40,7 @@ namespace BeYourCoach.Domain.Training
         {
             var training = new Training(week , dayOfWeek, discipline);
             Trainings.Add(training);
+            TrainingScheduled?.Invoke(this, new TrainingScheduled(week));
             return training;
         }
     }

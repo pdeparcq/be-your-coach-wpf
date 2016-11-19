@@ -7,6 +7,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
                     <local:Bootstrapper x:Key="bootstrapper" />
+                    
+                    <SolidColorBrush Color="LightGreen" x:Key="RunColor"></SolidColorBrush>
+                    <SolidColorBrush Color="DeepSkyBlue" x:Key="SwimColor"></SolidColorBrush>
+                    <SolidColorBrush Color="OrangeRed" x:Key="CycleColor"></SolidColorBrush>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

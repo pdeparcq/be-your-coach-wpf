@@ -59,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\Athlete.cs" />
     <Compile Include="Registration\FullName.cs" />
+    <Compile Include="Training\Events\TrainingScheduled.cs" />
     <Compile Include="Training\Schedule.cs" />
     <Compile Include="Training\Training.cs" />
   </ItemGroup>

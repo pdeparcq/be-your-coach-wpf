@@ -31,15 +31,15 @@
                 <DataGridTextColumn Binding="{Binding WeekOfWeekYear}" IsReadOnly="True" Header="Week" />
                 <DataGridTextColumn Binding="{Binding StartDate, StringFormat=dd-MM}" IsReadOnly="True" Header="StartDate" />
                 <DataGridTextColumn Binding="{Binding EndDate, StringFormat=dd-MM}" IsReadOnly="True" Header="EndDate" />
-                <DataGridTemplateColumn IsReadOnly="True">
+                <DataGridTemplateColumn IsReadOnly="True" Width="100" Header="Balance">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Label Content="TODO"></Label>
+                            <ContentControl cal:View.Model="{Binding}" cal:View.Context="Balance"></ContentControl>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <ContentControl Name="ActiveItem"></ContentControl>
+        <ContentControl Name="ActiveItem" cal:View.Context="Detail"></ContentControl>
     </DockPanel>
 </UserControl>

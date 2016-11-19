@@ -1,4 +1,6 @@
-﻿using BeYourCoach.Domain.Training;
+﻿using System.Collections.Generic;
+using System.Linq;
+using BeYourCoach.Domain.Training;
 using Caliburn.Micro;
 using NodaTime;
 
@@ -6,8 +8,8 @@ namespace BeYourCoach.Caliburn.Training
 {
     public class WeekScheduleViewModel : Conductor<DayScheduleViewModel>.Collection.AllActive
     {
-        public Schedule Schedule { get; private set; }
-        public int Week { get; private set; }
+        public Schedule Schedule { get; }
+        public int Week { get; }
         public int WeekOfWeekYear => StartDate.WeekOfWeekYear;
         public LocalDate StartDate => Schedule.StartDate.PlusWeeks(Week);
         public LocalDate EndDate => StartDate.PlusDays(6);
@@ -26,6 +28,11 @@ namespace BeYourCoach.Caliburn.Training
             Items.Add(Saturday = new DayScheduleViewModel(Schedule, Week, IsoDayOfWeek.Saturday));
             Items.Add(Sunday = new DayScheduleViewModel(Schedule, Week, IsoDayOfWeek.Sunday));
 
+            Schedule.TrainingScheduled += (sender, scheduled) =>
+            {
+                if (scheduled.Week != Week) return;
+                NotifyOfPropertyChange(() => Trainings);
+            };
         }
 
         public DayScheduleViewModel Monday { get; private set; }
@@ -35,6 +42,8 @@ namespace BeYourCoach.Caliburn.Training
         public DayScheduleViewModel Friday { get; private set; }
         public DayScheduleViewModel Saturday { get; private set; }
         public DayScheduleViewModel Sunday { get; private set; }
+
+        public IEnumerable<Domain.Training.Training> Trainings => Schedule.Trainings.OrderBy(t => t.Discipline).Where(t => t.Week == Week);
 
     }
 }
