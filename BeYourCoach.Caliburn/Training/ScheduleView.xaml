@@ -6,7 +6,7 @@
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel LastChildFill="True">
+    <DockPanel LastChildFill="True" FocusManager.FocusedElement="{Binding ElementName=Items}">
         <Border DockPanel.Dock="Top" Background="LightGray">
             <Label Name="Name" FontSize="20" HorizontalContentAlignment="Center"></Label>
         </Border>
