@@ -14,23 +14,7 @@
        </ItemsControl.ItemsPanel>
        <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Border>
-                    <Border.Style>
-                        <Style TargetType="{x:Type Border}">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Discipline}" Value="swimming">
-                                    <Setter Property="Background" Value="{StaticResource SwimColor}"></Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Discipline}" Value="cycling">
-                                    <Setter Property="Background" Value="{StaticResource CycleColor}"></Setter>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Discipline}" Value="running">
-                                    <Setter Property="Background" Value="{StaticResource RunColor}"></Setter>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Border.Style>
-                </Border>
+                <Border Style="{StaticResource DisciplineBorderStyle}"></Border>
             </DataTemplate>
        </ItemsControl.ItemTemplate>
    </ItemsControl>

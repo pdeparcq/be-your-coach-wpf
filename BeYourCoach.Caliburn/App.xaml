@@ -11,6 +11,20 @@
                     <SolidColorBrush Color="LightGreen" x:Key="RunColor"></SolidColorBrush>
                     <SolidColorBrush Color="DeepSkyBlue" x:Key="SwimColor"></SolidColorBrush>
                     <SolidColorBrush Color="OrangeRed" x:Key="CycleColor"></SolidColorBrush>
+
+                    <Style x:Key="DisciplineBorderStyle"  TargetType="{x:Type Border}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Discipline}" Value="swimming">
+                                <Setter Property="Background" Value="{StaticResource SwimColor}"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Discipline}" Value="cycling">
+                                <Setter Property="Background" Value="{StaticResource CycleColor}"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Discipline}" Value="running">
+                                <Setter Property="Background" Value="{StaticResource RunColor}"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

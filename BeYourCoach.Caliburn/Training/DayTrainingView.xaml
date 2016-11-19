@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:BeYourCoach.Caliburn.Training"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Border Background="{Binding Path=DisciplineColor, Mode=OneWay}">
+    <Border Style="{StaticResource DisciplineBorderStyle}">
         <Label VerticalAlignment="Center" HorizontalAlignment="Center" Name="Discipline"></Label>
     </Border>
 </UserControl>
