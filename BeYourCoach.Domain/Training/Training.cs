@@ -5,20 +5,26 @@ using NodaTime;
 
 namespace BeYourCoach.Domain.Training
 {
+    public enum Discipline
+    {
+        Swimming,
+        Cycling,
+        Running
+    }
+
     public class Training
     {
         public Guid Id { get; private set; }
         public int Week { get; private set; }
         public IsoDayOfWeek DayOfWeek { get; private set; }
-        public string Discipline { get; private set; }
+        public Discipline Discipline { get; private set; }
 
         [JsonConstructor]
         protected Training() { }
 
-        internal Training(int week, IsoDayOfWeek dayOfWeek, string discipline)
+        internal Training(int week, IsoDayOfWeek dayOfWeek, Discipline discipline)
         {
             Check.If(week).IsGreaterOrEqual(0);
-            Check.If(discipline).IsNotNullOrEmpty();
 
             Id = Guid.NewGuid();
             Week = week;

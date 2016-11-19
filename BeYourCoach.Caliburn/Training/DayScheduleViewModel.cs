@@ -22,20 +22,20 @@ namespace BeYourCoach.Caliburn.Training
 
         public void AddSwimTraining()
         {
-            AddTraining("swimming");
+            AddTraining(Discipline.Swimming);
         }
 
         public void AddCycleTraining()
         {
-            AddTraining("cycling");
+            AddTraining(Discipline.Cycling);
         }
 
         public void AddRunTraining()
         {
-            AddTraining("running");
+            AddTraining(Discipline.Running);
         }
 
-        private void AddTraining(string discipline)
+        private void AddTraining(Discipline discipline)
         {
             Schedule.ScheduleTraining(Week, DayOfWeek, discipline);
             NotifyOfPropertyChange(() => Trainings);

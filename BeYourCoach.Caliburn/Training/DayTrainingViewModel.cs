@@ -1,4 +1,5 @@
 ﻿using System.Windows.Media;
+using BeYourCoach.Domain.Training;
 
 namespace BeYourCoach.Caliburn.Training
 {
@@ -11,24 +12,6 @@ namespace BeYourCoach.Caliburn.Training
             Training = training;
         }
 
-        public string Discipline => Training.Discipline;
-
-        public Brush DisciplineColor
-        {
-            get
-            {
-                switch (Discipline)
-                {
-                    case "running":
-                        return Brushes.LightGreen;
-                    case "swimming":
-                        return Brushes.DeepSkyBlue;
-                    case "cycling":
-                        return Brushes.OrangeRed;
-                    default:
-                        return Brushes.Gray;
-                }
-            }
-        }
+        public Discipline Discipline => Training.Discipline;
     }
 }

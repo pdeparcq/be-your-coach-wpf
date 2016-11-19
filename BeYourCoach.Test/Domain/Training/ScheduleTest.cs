@@ -27,9 +27,9 @@ namespace BeYourCoach.Test.Domain.Training
         public void CanScheduleAndReScheduleTrainings()
         {
             var schedule = new Schedule(new Athlete(new FullName("Pieter", "Deparcq")), "Jaarplan Pieter", new LocalDate(2016, 10, 31));
-            schedule.ScheduleTraining(0, IsoDayOfWeek.Monday, "running");
-            schedule.ScheduleTraining(0, IsoDayOfWeek.Thursday, "cycling");
-            var training = schedule.ScheduleTraining(3, IsoDayOfWeek.Saturday, "swimming");
+            schedule.ScheduleTraining(0, IsoDayOfWeek.Monday, Discipline.Running);
+            schedule.ScheduleTraining(0, IsoDayOfWeek.Thursday, Discipline.Cycling);
+            var training = schedule.ScheduleTraining(3, IsoDayOfWeek.Saturday, Discipline.Swimming);
             training.ReSchedule(2, IsoDayOfWeek.Sunday);
             schedule.PrettyPrint();
         }
@@ -48,9 +48,9 @@ namespace BeYourCoach.Test.Domain.Training
         public static Schedule CreateTestSchedule()
         {
             var schedule = new Schedule(new Athlete(new FullName("Pieter", "Deparcq")), "Jaarplan Pieter", new LocalDate(2016, 10, 31));
-            schedule.ScheduleTraining(0, IsoDayOfWeek.Monday, "running");
-            schedule.ScheduleTraining(0, IsoDayOfWeek.Thursday, "cycling");
-            schedule.ScheduleTraining(3, IsoDayOfWeek.Saturday, "swimming");
+            schedule.ScheduleTraining(0, IsoDayOfWeek.Monday, Discipline.Running);
+            schedule.ScheduleTraining(0, IsoDayOfWeek.Thursday, Discipline.Cycling);
+            schedule.ScheduleTraining(3, IsoDayOfWeek.Saturday, Discipline.Swimming);
             return schedule;
         }
     }

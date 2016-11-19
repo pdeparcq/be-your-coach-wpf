@@ -36,7 +36,7 @@ namespace BeYourCoach.Domain.Training
             Trainings = new List<Training>();
         }
 
-        public Training ScheduleTraining(int week, IsoDayOfWeek dayOfWeek, string discipline)
+        public Training ScheduleTraining(int week, IsoDayOfWeek dayOfWeek, Discipline discipline)
         {
             var training = new Training(week , dayOfWeek, discipline);
             Trainings.Add(training);
