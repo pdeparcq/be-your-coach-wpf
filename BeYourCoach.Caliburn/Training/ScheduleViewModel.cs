@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Runtime.CompilerServices;
 using BeYourCoach.Domain.Training;
 using Caliburn.Micro;
 using Conditions.Guards;

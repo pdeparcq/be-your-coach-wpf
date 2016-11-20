@@ -44,6 +44,5 @@ namespace BeYourCoach.Caliburn.Training
         public DayScheduleViewModel Sunday { get; private set; }
 
         public IEnumerable<Domain.Training.Training> Trainings => Schedule.Trainings.OrderBy(t => t.Discipline).Where(t => t.Week == Week);
-
     }
 }

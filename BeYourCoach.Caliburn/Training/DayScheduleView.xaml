@@ -54,5 +54,14 @@
                 </Style>
             </ItemsControl.Style>
         </ItemsControl>
+        <Grid.Style>
+            <Style TargetType="{x:Type Grid}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsToday}" Value="True">
+                        <Setter Property="Background" Value="LightGoldenrodYellow"></Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Style>
     </Grid>
 </UserControl>
