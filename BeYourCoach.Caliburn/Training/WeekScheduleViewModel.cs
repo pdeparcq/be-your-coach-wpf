@@ -14,6 +14,7 @@ namespace BeYourCoach.Caliburn.Training
         public LocalDate StartDate => Schedule.StartDate.PlusWeeks(Week);
         public LocalDate EndDate => StartDate.PlusDays(6);
         public string Title => $"Week {WeekOfWeekYear} {StartDate.Year}";
+        public bool IsThisWeek => WeekOfWeekYear == SystemClock.Instance.Now.InUtc().WeekOfWeekYear;
 
         public WeekScheduleViewModel(Schedule schedule, int week)
         {

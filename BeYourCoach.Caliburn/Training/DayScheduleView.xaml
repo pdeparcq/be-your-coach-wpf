@@ -58,7 +58,7 @@
             <Style TargetType="{x:Type Grid}">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Path=IsToday}" Value="True">
-                        <Setter Property="Background" Value="LightGoldenrodYellow"></Setter>
+                        <Setter Property="Background" Value="{StaticResource TodayColor}"></Setter>
                     </DataTrigger>
                 </Style.Triggers>
             </Style>
