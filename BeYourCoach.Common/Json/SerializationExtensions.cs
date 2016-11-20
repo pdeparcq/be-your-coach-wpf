@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.IO;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace BeYourCoach.Common.Json
@@ -20,9 +21,21 @@ namespace BeYourCoach.Common.Json
             return JsonConvert.SerializeObject(o, formatting, JsonSerializerSettings);
         }
 
+        public static void Serialize(this object o, StreamWriter writer)
+        {
+            var serializer = JsonSerializer.Create(JsonSerializerSettings);
+            serializer.Serialize(writer, o);
+        }
+
         public static T Deserialize<T>(this string s)
         {
             return JsonConvert.DeserializeObject<T>(s, JsonSerializerSettings);
+        }
+
+        public static T Deserialize<T>(this StreamReader reader)
+        {
+            var serializer = JsonSerializer.Create(JsonSerializerSettings);
+            return serializer.Deserialize<T>(new JsonTextReader(reader));
         }
     }
 }

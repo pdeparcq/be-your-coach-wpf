@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourCoach.Common", "BeYou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourCoach.Caliburn", "BeYourCoach.Caliburn\BeYourCoach.Caliburn.csproj", "{2341BF69-2C29-4D67-8C4C-FAF903ABC2F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourCoach.Infrastructure", "BeYourCoach.Infrastructure\BeYourCoach.Infrastructure.csproj", "{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2341BF69-2C29-4D67-8C4C-FAF903ABC2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2341BF69-2C29-4D67-8C4C-FAF903ABC2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2341BF69-2C29-4D67-8C4C-FAF903ABC2F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

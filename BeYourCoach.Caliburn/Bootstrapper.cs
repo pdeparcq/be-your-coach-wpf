@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using Autofac;
+using BeYourCoach.Domain.Training;
+using BeYourCoach.Infrastructure.Training;
 using Caliburn.Micro.Autofac;
 
 namespace BeYourCoach.Caliburn
@@ -12,7 +14,10 @@ namespace BeYourCoach.Caliburn
             Initialize();
         }
 
-        protected override void ConfigureContainer(ContainerBuilder builder) {}
+        protected override void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterType<ScheduleRepository>().As<IScheduleRepository>();
+        }
 
         protected override void ConfigureBootstrapper()
         {
