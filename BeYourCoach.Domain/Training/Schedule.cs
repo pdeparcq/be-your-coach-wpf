@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BeYourCoach.Common;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training.Events;
 using Conditions.Guards;
@@ -8,7 +9,7 @@ using NodaTime;
 
 namespace BeYourCoach.Domain.Training
 {
-    public class Schedule
+    public class Schedule : IEntity
     {
         public Guid Id { get; private set; }
         public Guid AthleteId { get; private set; }

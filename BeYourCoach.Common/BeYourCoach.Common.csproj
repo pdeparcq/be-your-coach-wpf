@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IEntity.cs" />
+    <Compile Include="Json\JsonRepository.cs" />
     <Compile Include="Json\LocalDateJsonConverter.cs" />
     <Compile Include="Json\PrivateSettersContractResolvers.cs" />
     <Compile Include="Json\SerializationExtensions.cs" />
