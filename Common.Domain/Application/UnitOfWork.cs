@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Deparcq.Common.Domain;
 
-namespace Common.Domain
+namespace Deparcq.Common.Application
 {
     public class UnitOfWork : IUnitOfWork
     {

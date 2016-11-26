@@ -69,9 +69,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common.Domain\Common.Domain.csproj">
+    <ProjectReference Include="..\Common.Domain\Deparcq.Common.csproj">
       <Project>{7C686388-86E3-4CF4-B346-4F4733F73ACF}</Project>
-      <Name>Common.Domain</Name>
+      <Name>Deparcq.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

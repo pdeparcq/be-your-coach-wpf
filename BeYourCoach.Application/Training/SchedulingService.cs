@@ -1,7 +1,7 @@
 ﻿using System;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training;
-using Common.Domain;
+using Deparcq.Common.Application;
 using NodaTime;
 
 namespace BeYourCoach.Application.Training

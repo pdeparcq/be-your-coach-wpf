@@ -7,8 +7,8 @@
     <ProjectGuid>{7C686388-86E3-4CF4-B346-4F4733F73ACF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common.Domain</RootNamespace>
-    <AssemblyName>Common.Domain</AssemblyName>
+    <RootNamespace>Deparcq.Common</RootNamespace>
+    <AssemblyName>Deparcq.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,16 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DomainEventPublisher.cs" />
-    <Compile Include="EntityBase.cs" />
-    <Compile Include="IDomainEvent.cs" />
-    <Compile Include="IDomainEventPublisher.cs" />
-    <Compile Include="IEntity.cs" />
-    <Compile Include="IEntityRepository.cs" />
-    <Compile Include="IHandle.cs" />
-    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Domain\DomainEventPublisher.cs" />
+    <Compile Include="Domain\EntityBase.cs" />
+    <Compile Include="Domain\IDomainEvent.cs" />
+    <Compile Include="Domain\IDomainEventPublisher.cs" />
+    <Compile Include="Domain\IEntity.cs" />
+    <Compile Include="Domain\IEntityRepository.cs" />
+    <Compile Include="Domain\IHandle.cs" />
+    <Compile Include="Application\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="Application\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training.Events;
-using Common.Domain;
 using Conditions.Guards;
+using Deparcq.Common.Domain;
 using Newtonsoft.Json;
 using NodaTime;
 

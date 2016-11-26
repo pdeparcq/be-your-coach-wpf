@@ -2,7 +2,7 @@
 using System.Linq;
 using BeYourCoach.Common.Json;
 using BeYourCoach.Domain.Training;
-using Common.Domain;
+using Deparcq.Common.Application;
 
 namespace BeYourCoach.Infrastructure.Training
 {

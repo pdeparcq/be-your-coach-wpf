@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Common.Domain
+namespace Deparcq.Common.Domain
 {
     public abstract class EntityBase : IEntity
     {

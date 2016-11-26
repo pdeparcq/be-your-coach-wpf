@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourCoach.Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourCoach.Application", "BeYourCoach.Application\BeYourCoach.Application.csproj", "{7BFF4347-0BDD-4643-B91B-FC9F20CF6F0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Domain", "Common.Domain\Common.Domain.csproj", "{7C686388-86E3-4CF4-B346-4F4733F73ACF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deparcq.Common", "Common.Domain\Deparcq.Common.csproj", "{7C686388-86E3-4CF4-B346-4F4733F73ACF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Common.Domain
+namespace Deparcq.Common.Domain
 {
     public interface IEntityRepository {
         void SaveChanges();

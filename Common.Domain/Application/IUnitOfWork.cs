@@ -1,4 +1,6 @@
-﻿namespace Common.Domain
+﻿using Deparcq.Common.Domain;
+
+namespace Deparcq.Common.Application
 {
     public interface IUnitOfWork
     {

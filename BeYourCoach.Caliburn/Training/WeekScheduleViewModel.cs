@@ -4,12 +4,12 @@ using System.Linq;
 using BeYourCoach.Domain.Training;
 using BeYourCoach.Domain.Training.Events;
 using Caliburn.Micro;
-using Common.Domain;
+using Deparcq.Common.Domain;
 using NodaTime;
 
 namespace BeYourCoach.Caliburn.Training
 {
-    public class WeekScheduleViewModel : Conductor<DayScheduleViewModel>.Collection.AllActive, Common.Domain.IHandle<TrainingScheduled>
+    public class WeekScheduleViewModel : Conductor<DayScheduleViewModel>.Collection.AllActive, Deparcq.Common.Domain.IHandle<TrainingScheduled>
     {
         public Schedule Schedule { get; }
         public int Week { get; }

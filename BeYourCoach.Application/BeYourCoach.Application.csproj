@@ -58,9 +58,9 @@
       <Project>{8BBCE62D-C18E-478E-9C1A-A3BABA4DC7B8}</Project>
       <Name>BeYourCoach.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common.Domain\Common.Domain.csproj">
+    <ProjectReference Include="..\Common.Domain\Deparcq.Common.csproj">
       <Project>{7C686388-86E3-4CF4-B346-4F4733F73ACF}</Project>
-      <Name>Common.Domain</Name>
+      <Name>Deparcq.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

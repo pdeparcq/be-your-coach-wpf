@@ -7,7 +7,8 @@ using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training;
 using BeYourCoach.Infrastructure.Training;
 using Caliburn.Micro.Autofac;
-using Common.Domain;
+using Deparcq.Common.Application;
+using Deparcq.Common.Domain;
 
 namespace BeYourCoach.Caliburn
 {

@@ -1,6 +1,6 @@
 ﻿using System;
-using Common.Domain;
 using Conditions.Guards;
+using Deparcq.Common.Domain;
 
 namespace BeYourCoach.Domain.Training.Events
 {

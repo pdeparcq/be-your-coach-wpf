@@ -1,8 +1,7 @@
-﻿using System;
-using MemBus;
+﻿using MemBus;
 using MemBus.Configurators;
 
-namespace Common.Domain
+namespace Deparcq.Common.Domain
 {
     public class DomainEventPublisher : IDomainEventPublisher
     {
