@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\ApplicationServiceBase.cs" />
     <Compile Include="Domain\DomainEventPublisher.cs" />
     <Compile Include="Domain\EntityBase.cs" />
     <Compile Include="Domain\IDomainEvent.cs" />

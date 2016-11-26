@@ -38,5 +38,10 @@ namespace Deparcq.Common.Json
             var serializer = JsonSerializer.Create(JsonSerializerSettings);
             return serializer.Deserialize<T>(new JsonTextReader(reader));
         }
+
+        public static T Cast<T>(this object o)
+        {
+            return Deserialize<T>(o.Serialize());
+        }
     }
 }

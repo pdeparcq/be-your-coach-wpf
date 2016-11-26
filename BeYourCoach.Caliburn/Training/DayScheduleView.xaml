@@ -7,6 +7,9 @@
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Path x:Key="PlusSign" x:Shared="False" Margin="5" Stroke="White" Data="M0,5 H10 M5,5 V10Z"  StrokeThickness="2" Height="10" Width="10" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -19,9 +22,11 @@
             </Grid.ColumnDefinitions>
             <Label FontSize="12" FontStyle="Oblique" Name="Date"></Label>
             <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <Button Name="AddSwimTraining" Content="+ Swimming" Margin="0,0,2,0"></Button>
-                <Button Name="AddCycleTraining" Content="+ Cycling" Margin="0,0,2,0"></Button>
-                <Button Name="AddRunTraining" Content="+ Running"></Button>
+                <Button Name="AddSwimTraining" Margin="0,0,2,0" Background="{StaticResource SwimColor}" Content="{StaticResource PlusSign}">
+                </Button>
+                <Button Name="AddCycleTraining" Margin="0,0,2,0" Background="{StaticResource CycleColor}" Content="{StaticResource PlusSign}">
+                </Button>
+                <Button Name="AddRunTraining" Background="{StaticResource RunColor}" Content="{StaticResource PlusSign}"></Button>
             </StackPanel>
         </Grid>
         <ItemsControl Grid.Row="1" Name="Trainings">

@@ -6,15 +6,13 @@ using NodaTime;
 
 namespace BeYourCoach.Application.Training
 {
-    public class SchedulingService : ISchedulingService
+    public class SchedulingService : ApplicationServiceBase, ISchedulingService
     {
-        protected IUnitOfWork UnitOfWork { get; private set; }
         protected IAthleteRepository AthleteRepository { get; private set; }
         protected IScheduleRepository ScheduleRepository { get; private set; }
         
-        public SchedulingService(IUnitOfWork unitOfWork, IAthleteRepository athleteRepository, IScheduleRepository scheduleRepository)
+        public SchedulingService(IUnitOfWork unitOfWork, IAthleteRepository athleteRepository, IScheduleRepository scheduleRepository) : base(unitOfWork)
         {
-            UnitOfWork = unitOfWork;
             AthleteRepository = athleteRepository;
             ScheduleRepository = scheduleRepository;
         }
@@ -38,21 +36,6 @@ namespace BeYourCoach.Application.Training
                 ScheduleRepository.Update(schedule);
                 return training;
             });
-        }
-
-        protected T InUnitOfWork<T>(Func<T> execute)
-        {
-            try
-            {
-                var result = execute();
-                UnitOfWork.Commit();
-                return result;
-            }
-            catch (Exception)
-            {
-                UnitOfWork.Rollback();
-                throw;
-            }
         }
     }
 }
