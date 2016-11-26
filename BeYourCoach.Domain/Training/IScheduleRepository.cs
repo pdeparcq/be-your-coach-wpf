@@ -5,7 +5,7 @@ namespace BeYourCoach.Domain.Training
 {
     public interface IScheduleRepository
     {
-        void Add(Schedule schedule);
+        Schedule Add(Schedule schedule);
 
         Schedule Get(Guid id);
 

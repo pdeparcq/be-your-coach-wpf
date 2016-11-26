@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using BeYourCoach.Application.Training;
 using BeYourCoach.Caliburn.Training;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training;
@@ -11,29 +13,20 @@ namespace BeYourCoach.Caliburn
     public class ShellViewModel : Conductor<ScheduleViewModel>.Collection.OneActive
     {
         private readonly IScheduleRepository _scheduleRepository;
+        private readonly ISchedulingService _schedulingService;
 
-        public ShellViewModel(IScheduleRepository repository)
+        public ShellViewModel(ISchedulingService service, IScheduleRepository repository)
         {
             _scheduleRepository = repository;
+            _schedulingService = service;
         }
         protected override void OnActivate()
         {
             base.OnActivate();
 
-            var schedule = _scheduleRepository.Schedules.FirstOrDefault();
-            if (schedule == null)
-            {
-                schedule = new Schedule(new Athlete(new FullName("Pieter", "Deparcq")), "Jaarplan Pieter", new LocalDate(2016, 10, 31));
-                _scheduleRepository.Add(schedule);
-            }
+            var schedule = _scheduleRepository.Schedules.FirstOrDefault() ?? _schedulingService.CreateSchedule(Guid.Empty, "Jaarplan Pieter", new LocalDate(2016, 10, 31));
             ActiveItem = new ScheduleViewModel(schedule);
             DisplayName = "BeYourCoach";
-        }
-
-        protected override void OnDeactivate(bool close)
-        {
-            _scheduleRepository.Update(ActiveItem.Schedule);
-            base.OnDeactivate(close);
         }
     }
 }

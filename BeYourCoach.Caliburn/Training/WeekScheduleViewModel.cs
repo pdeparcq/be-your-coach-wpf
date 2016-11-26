@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BeYourCoach.Domain.Training;
+using BeYourCoach.Domain.Training.Events;
 using Caliburn.Micro;
+using Common.Domain;
 using NodaTime;
 
 namespace BeYourCoach.Caliburn.Training
 {
-    public class WeekScheduleViewModel : Conductor<DayScheduleViewModel>.Collection.AllActive
+    public class WeekScheduleViewModel : Conductor<DayScheduleViewModel>.Collection.AllActive, Common.Domain.IHandle<TrainingScheduled>
     {
         public Schedule Schedule { get; }
         public int Week { get; }
@@ -18,6 +21,7 @@ namespace BeYourCoach.Caliburn.Training
 
         public WeekScheduleViewModel(Schedule schedule, int week)
         {
+            IoC.Get<IDomainEventPublisher>().Subscribe(this);
             Schedule = schedule;
             Week = week;
 
@@ -28,12 +32,6 @@ namespace BeYourCoach.Caliburn.Training
             Items.Add(Friday = new DayScheduleViewModel(Schedule, Week, IsoDayOfWeek.Friday));
             Items.Add(Saturday = new DayScheduleViewModel(Schedule, Week, IsoDayOfWeek.Saturday));
             Items.Add(Sunday = new DayScheduleViewModel(Schedule, Week, IsoDayOfWeek.Sunday));
-
-            Schedule.TrainingScheduled += (sender, scheduled) =>
-            {
-                if (scheduled.Week != Week) return;
-                NotifyOfPropertyChange(() => Trainings);
-            };
         }
 
         public DayScheduleViewModel Monday { get; private set; }
@@ -45,5 +43,11 @@ namespace BeYourCoach.Caliburn.Training
         public DayScheduleViewModel Sunday { get; private set; }
 
         public IEnumerable<Domain.Training.Training> Trainings => Schedule.Trainings.OrderBy(t => t.Discipline).Where(t => t.Week == Week);
+
+        public void Handle(TrainingScheduled e)
+        {
+            if (e.Week != Week) return;
+            NotifyOfPropertyChange(() => Trainings);
+        }
     }
 }

@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using BeYourCoach.Application.Training;
 using BeYourCoach.Domain.Training;
 using Caliburn.Micro;
 using NodaTime;
@@ -39,7 +39,8 @@ namespace BeYourCoach.Caliburn.Training
 
         private void AddTraining(Discipline discipline)
         {
-            Schedule.ScheduleTraining(Week, DayOfWeek, discipline);
+            var service = IoC.Get<ISchedulingService>();
+            service.ScheduleTraining(Schedule.Id, Week, DayOfWeek, discipline);
             NotifyOfPropertyChange(() => Trainings);
         }
 

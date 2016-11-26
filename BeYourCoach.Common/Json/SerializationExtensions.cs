@@ -14,6 +14,7 @@ namespace BeYourCoach.Common.Json
             JsonSerializerSettings.Converters.Add(new StringEnumConverter());
             JsonSerializerSettings.Converters.Add(new LocalDateJsonConverter());
             JsonSerializerSettings.ContractResolver = new PrivateSetterContractResolver();
+            JsonSerializerSettings.ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor;
         }
 
         public static string Serialize(this object o, Formatting formatting = Formatting.None)

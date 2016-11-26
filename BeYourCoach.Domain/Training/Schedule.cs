@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using BeYourCoach.Common;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training.Events;
+using Common.Domain;
 using Conditions.Guards;
 using Newtonsoft.Json;
 using NodaTime;
 
 namespace BeYourCoach.Domain.Training
 {
-    public class Schedule : IEntity
+    public class Schedule : EntityBase
     {
-        public Guid Id { get; private set; }
         public Guid AthleteId { get; private set; }
         public string Name { get; private set; }
         public LocalDate StartDate { get; private set; }
         public ICollection<Training> Trainings { get; private set; }
-
-        public event EventHandler<TrainingScheduled> TrainingScheduled;
 
         [JsonConstructor]
         protected Schedule() { }
@@ -30,7 +27,6 @@ namespace BeYourCoach.Domain.Training
             if(startDate.IsoDayOfWeek != IsoDayOfWeek.Monday)
                 throw new ArgumentException("Schedule should start on Monday", nameof(startDate));
 
-            Id = Guid.NewGuid();
             AthleteId = athlete.Id;
             Name = name;
             StartDate = startDate;
@@ -41,7 +37,7 @@ namespace BeYourCoach.Domain.Training
         {
             var training = new Training(week , dayOfWeek, discipline);
             Trainings.Add(training);
-            TrainingScheduled?.Invoke(this, new TrainingScheduled(week));
+            Events.Add(new TrainingScheduled(this, training));
             return training;
         }
     }

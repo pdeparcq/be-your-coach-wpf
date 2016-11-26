@@ -61,6 +61,7 @@
     <Compile Include="TestExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
@@ -76,6 +77,10 @@
     <ProjectReference Include="..\BeYourCoach.Domain\BeYourCoach.Domain.csproj">
       <Project>{8bbce62d-c18e-478e-9c1a-a3baba4dc7b8}</Project>
       <Name>BeYourCoach.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common.Domain\Common.Domain.csproj">
+      <Project>{7c686388-86e3-4cf4-b346-4f4733f73acf}</Project>
+      <Name>Common.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

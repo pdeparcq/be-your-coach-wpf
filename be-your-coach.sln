@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourCoach.Caliburn", "BeY
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourCoach.Infrastructure", "BeYourCoach.Infrastructure\BeYourCoach.Infrastructure.csproj", "{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeYourCoach.Application", "BeYourCoach.Application\BeYourCoach.Application.csproj", "{7BFF4347-0BDD-4643-B91B-FC9F20CF6F0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Domain", "Common.Domain\Common.Domain.csproj", "{7C686388-86E3-4CF4-B346-4F4733F73ACF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60A3FFE6-7E19-4C70-A54D-E4BBA539A788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFF4347-0BDD-4643-B91B-FC9F20CF6F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFF4347-0BDD-4643-B91B-FC9F20CF6F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFF4347-0BDD-4643-B91B-FC9F20CF6F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFF4347-0BDD-4643-B91B-FC9F20CF6F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C686388-86E3-4CF4-B346-4F4733F73ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C686388-86E3-4CF4-B346-4F4733F73ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C686388-86E3-4CF4-B346-4F4733F73ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C686388-86E3-4CF4-B346-4F4733F73ACF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
