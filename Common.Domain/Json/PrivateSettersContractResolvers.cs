@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace BeYourCoach.Common.Json
+namespace Deparcq.Common.Json
 {
     public class PrivateSetterContractResolver : DefaultContractResolver
     {

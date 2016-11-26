@@ -5,7 +5,7 @@ using System.Linq;
 using Deparcq.Common.Application;
 using Deparcq.Common.Domain;
 
-namespace BeYourCoach.Common.Json
+namespace Deparcq.Common.Json
 {
     public abstract class JsonRepository<T> : IEntityRepository where T : IEntity
     {

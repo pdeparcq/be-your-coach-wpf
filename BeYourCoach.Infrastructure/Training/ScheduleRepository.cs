@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using BeYourCoach.Common.Json;
 using BeYourCoach.Domain.Training;
 using Deparcq.Common.Application;
+using Deparcq.Common.Json;
 
 namespace BeYourCoach.Infrastructure.Training
 {

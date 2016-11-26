@@ -3,7 +3,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using NodaTime;
 
-namespace BeYourCoach.Common.Json
+namespace Deparcq.Common.Json
 {
     public class LocalDateJsonConverter : JsonConverter
     {

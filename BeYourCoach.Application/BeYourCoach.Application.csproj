@@ -50,10 +50,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\BeYourCoach.Common\BeYourCoach.Common.csproj">
-      <Project>{B527A681-9A20-4233-98CB-467315240E0E}</Project>
-      <Name>BeYourCoach.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BeYourCoach.Domain\BeYourCoach.Domain.csproj">
       <Project>{8BBCE62D-C18E-478E-9C1A-A3BABA4DC7B8}</Project>
       <Name>BeYourCoach.Domain</Name>

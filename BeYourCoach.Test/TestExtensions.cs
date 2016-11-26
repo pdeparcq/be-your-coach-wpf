@@ -1,5 +1,5 @@
 ﻿using System;
-using BeYourCoach.Common.Json;
+using Deparcq.Common.Json;
 using Newtonsoft.Json;
 
 namespace BeYourCoach.Test

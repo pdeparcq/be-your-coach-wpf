@@ -1,7 +1,7 @@
 ﻿using System;
-using BeYourCoach.Common.Json;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training;
+using Deparcq.Common.Json;
 using NodaTime;
 using NUnit.Framework;
 

@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace BeYourCoach.Common.Json
+namespace Deparcq.Common.Json
 {
     public static class SerializationExtensions
     {
