@@ -53,6 +53,11 @@ namespace BeYourCoach.Application.Training
             return InUnitOfWork(() => ScheduleRepository.Get(scheduleId).CancelTraining(trainingId, remarks));
         }
 
+        public Domain.Training.Training ReScheduleTraining(Guid scheduleId, Guid trainingId, int week, IsoDayOfWeek dayOfWeek)
+        {
+            return InUnitOfWork(() => ScheduleRepository.Get(scheduleId).ReScheduleTraining(trainingId, week, dayOfWeek));
+        }
+
         public void RemoveTraining(Guid scheduleId, Guid trainingId)
         {
             InUnitOfWork(() =>

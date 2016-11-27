@@ -30,7 +30,7 @@
                 <DataGridTextColumn Binding="{Binding WeekOfWeekYear}" IsReadOnly="True" Header="Week" />
                 <DataGridTextColumn Binding="{Binding StartDate, StringFormat=dd-MM}" IsReadOnly="True" Header="StartDate" />
                 <DataGridTextColumn Binding="{Binding EndDate, StringFormat=dd-MM}" IsReadOnly="True" Header="EndDate" />
-                <DataGridTemplateColumn IsReadOnly="True" Width="100" Header="Balance">
+                <DataGridTemplateColumn IsReadOnly="True" Width="70" Header="Balance">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ContentControl cal:View.Model="{Binding}" cal:View.Context="Balance"></ContentControl>
@@ -38,7 +38,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding Path=Trainings.Count}" IsReadOnly="True" Header="#" />
-                <DataGridTemplateColumn IsReadOnly="True" Width="50" Header="Progress">
+                <DataGridTemplateColumn IsReadOnly="True" Width="70" Header="Progress">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <ProgressBar Minimum="0" Maximum="100" Value="{Binding Path=PercentageCompleted, Mode=OneWay}"></ProgressBar>

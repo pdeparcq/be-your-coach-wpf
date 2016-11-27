@@ -42,6 +42,14 @@ namespace BeYourCoach.Domain.Training
             return training;
         }
 
+        public Training ReScheduleTraining(Guid trainingId, int week, IsoDayOfWeek dayOfWeek)
+        {
+            var training = GetTraining(trainingId);
+            training.ReSchedule(week, dayOfWeek);
+            Events.Add(new TrainingReScheduled(this, training));
+            return training;
+        }
+
         public Training GetTraining(Guid trainingId)
         {
             return Trainings.Single(t => t.Id == trainingId);

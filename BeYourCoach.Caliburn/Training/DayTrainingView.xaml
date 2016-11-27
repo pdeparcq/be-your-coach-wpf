@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Border Style="{StaticResource DisciplineBorderStyle}">
+    <Border MouseMove="UIElement_OnMouseMove" Style="{StaticResource DisciplineBorderStyle}">
         <Grid Margin="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
@@ -13,10 +13,10 @@
             </Grid.RowDefinitions>
             <UniformGrid Rows="1">
                 <Border Name="DescriptionIsVisible">
-                    <TextBox Opacity="0.6" Name="Description" IsReadOnly="{Binding DescriptionIsReadOnly}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>    
+                    <TextBox AllowDrop="False" Opacity="0.6" Name="Description" IsReadOnly="{Binding DescriptionIsReadOnly}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>    
                 </Border>
                 <Border Name="RemarksIsVisible">
-                    <TextBox Opacity="0.6" Name="Remarks" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>
+                    <TextBox AllowDrop="False" Opacity="0.6" Name="Remarks" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>
                 </Border>
             </UniformGrid>
             <Grid Grid.Row="1">
@@ -30,13 +30,13 @@
                 </StackPanel>
                 <UniformGrid Grid.Column="1" Rows="1">
                     <Border Name="RemoveTrainingIsVisible">
-                        <Button Name="RemoveTraining" Content="Remove" Opacity="0.8" Margin="0,0,5,0"></Button>
+                        <Button Name="RemoveTraining" Content="Remove" Opacity="0.8"></Button>
                     </Border>
                     <Border Name="PlanTrainingIsVisible">
                         <Button Name="PlanTraining" Content="Plan" Opacity="0.8"></Button>
                     </Border>
                     <Border Name="CancelTrainingIsVisible">
-                        <Button Name="CancelTraining" Content="Cancel" Opacity="0.8" Margin="0,0,5,0"></Button>
+                        <Button Name="CancelTraining" Content="Cancel" Opacity="0.8"></Button>
                     </Border>
                     <Border Name="MarkTrainingAsDoneIsVisible">
                         <Button Name="MarkTrainingAsDone" Content="Done" Opacity="0.8"></Button>

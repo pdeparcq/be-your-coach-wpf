@@ -10,7 +10,7 @@
     <UserControl.Resources>
         <Path x:Key="PlusSign" x:Shared="False" Margin="5" Stroke="White" Data="M0,5 H10 M5,5 V10Z"  StrokeThickness="2" Height="10" Width="10" />
     </UserControl.Resources>
-    <Grid>
+    <Grid AllowDrop="True" Drop="Grid_OnDrop">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>

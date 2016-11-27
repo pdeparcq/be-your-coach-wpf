@@ -65,6 +65,7 @@
     <Compile Include="Training\Events\TrainingEvent.cs" />
     <Compile Include="Training\Events\TrainingPlanned.cs" />
     <Compile Include="Training\Events\TrainingRemoved.cs" />
+    <Compile Include="Training\Events\TrainingReScheduled.cs" />
     <Compile Include="Training\Events\TrainingScheduled.cs" />
     <Compile Include="Training\IScheduleRepository.cs" />
     <Compile Include="Training\Schedule.cs" />

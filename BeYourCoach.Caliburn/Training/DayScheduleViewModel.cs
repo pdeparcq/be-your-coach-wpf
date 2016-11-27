@@ -10,7 +10,9 @@ using NodaTime;
 
 namespace BeYourCoach.Caliburn.Training
 {
-    public class DayScheduleViewModel : PropertyChangedBase, Deparcq.Common.Domain.IHandle<TrainingRemoved>
+    public class DayScheduleViewModel : PropertyChangedBase, 
+        Deparcq.Common.Domain.IHandle<TrainingRemoved>,
+        Deparcq.Common.Domain.IHandle<TrainingReScheduled>
     {
         public Schedule Schedule { get; private set; }
         public int Week { get; private set; }
@@ -20,7 +22,9 @@ namespace BeYourCoach.Caliburn.Training
 
         public DayScheduleViewModel(Schedule schedule, int week, IsoDayOfWeek dayOfWeek)
         {
-            IoC.Get<IDomainEventPublisher>().Subscribe(this);
+            var publisher = IoC.Get<IDomainEventPublisher>();
+            publisher.Subscribe(this as Deparcq.Common.Domain.IHandle<TrainingRemoved>);
+            publisher.Subscribe(this as Deparcq.Common.Domain.IHandle<TrainingReScheduled>);
             Schedule = schedule;
             Week = week;
             DayOfWeek = dayOfWeek;
@@ -48,6 +52,19 @@ namespace BeYourCoach.Caliburn.Training
             NotifyOfPropertyChange(() => Trainings);
         }
 
+        public ICollection<DayTrainingViewModel> Trainings
+        {
+            get { return Schedule.Trainings.Where(t => t.Week == Week && t.DayOfWeek == DayOfWeek).Select(t => new DayTrainingViewModel(Schedule, t)).ToList(); }
+        }
+
+        public void ReScheduleTraining(Domain.Training.Training training)
+        {
+            var service = IoC.Get<ISchedulingService>();
+            service.ReScheduleTraining(Schedule.Id, training.Id, Week, DayOfWeek);
+            NotifyOfPropertyChange(() => Trainings);
+        }
+
+
         public void Handle(TrainingRemoved domainEvent)
         {
             if (domainEvent.Week == Week)
@@ -56,9 +73,12 @@ namespace BeYourCoach.Caliburn.Training
             }
         }
 
-        public ICollection<DayTrainingViewModel> Trainings
+        public void Handle(TrainingReScheduled domainEvent)
         {
-            get { return Schedule.Trainings.Where(t => t.Week == Week && t.DayOfWeek == DayOfWeek).Select(t => new DayTrainingViewModel(Schedule, t)).ToList(); }
+            if (domainEvent.Week == Week)
+            {
+                NotifyOfPropertyChange(() => Trainings);
+            }
         }
     }
 }
