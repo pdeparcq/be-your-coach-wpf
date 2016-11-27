@@ -47,6 +47,30 @@ namespace BeYourCoach.Domain.Training
             return Trainings.Single(t => t.Id == trainingId);
         }
 
+        public Training PlanTraining(Guid trainingId, string description)
+        {
+            var training = GetTraining(trainingId);
+            training.Plan(description);
+            Events.Add(new TrainingPlanned(this, training));
+            return training;
+        }
+
+        public Training CancelTraining(Guid trainingId, string remarks)
+        {
+            var training = GetTraining(trainingId);
+            training.Cancel(remarks);
+            Events.Add(new TrainingCancelled(this, training));
+            return training;
+        }
+
+        public Training MarkTrainingAsDone(Guid trainingId, string remarks)
+        {
+            var training = GetTraining(trainingId);
+            training.Done(remarks);
+            Events.Add(new TrainingCompleted(this, training));
+            return training;
+        }
+
         public void RemoveTraining(Guid trainingId)
         {
             var training = Trainings.Single(t => t.Id == trainingId);

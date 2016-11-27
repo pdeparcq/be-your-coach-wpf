@@ -40,38 +40,17 @@ namespace BeYourCoach.Application.Training
 
         public Domain.Training.Training PlanTraining(Guid scheduleId, Guid trainingId, string description)
         {
-            return InUnitOfWork(() =>
-            {
-                var schedule = ScheduleRepository.Get(scheduleId);
-                var training = schedule.GetTraining(trainingId);
-                training.Plan(description);
-                ScheduleRepository.Update(schedule);
-                return training;
-            });
+            return InUnitOfWork(() => ScheduleRepository.Get(scheduleId).PlanTraining(trainingId, description));
         }
 
         public Domain.Training.Training MarkTrainingAsDone(Guid scheduleId, Guid trainingId, string remarks)
         {
-            return InUnitOfWork(() =>
-            {
-                var schedule = ScheduleRepository.Get(scheduleId);
-                var training = schedule.GetTraining(trainingId);
-                training.Done(remarks);
-                ScheduleRepository.Update(schedule);
-                return training;
-            });
+            return InUnitOfWork(() => ScheduleRepository.Get(scheduleId).MarkTrainingAsDone(trainingId, remarks));
         }
 
         public Domain.Training.Training CancelTraining(Guid scheduleId, Guid trainingId, string remarks)
         {
-            return InUnitOfWork(() =>
-            {
-                var schedule = ScheduleRepository.Get(scheduleId);
-                var training = schedule.GetTraining(trainingId);
-                training.Cancel(remarks);
-                ScheduleRepository.Update(schedule);
-                return training;
-            });
+            return InUnitOfWork(() => ScheduleRepository.Get(scheduleId).CancelTraining(trainingId, remarks));
         }
 
         public void RemoveTraining(Guid scheduleId, Guid trainingId)

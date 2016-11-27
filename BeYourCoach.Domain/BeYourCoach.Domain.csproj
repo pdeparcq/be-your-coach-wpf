@@ -60,6 +60,10 @@
     <Compile Include="Registration\Athlete.cs" />
     <Compile Include="Registration\FullName.cs" />
     <Compile Include="Registration\IAthleteRepository.cs" />
+    <Compile Include="Training\Events\TrainingCancelled.cs" />
+    <Compile Include="Training\Events\TrainingCompleted.cs" />
+    <Compile Include="Training\Events\TrainingEvent.cs" />
+    <Compile Include="Training\Events\TrainingPlanned.cs" />
     <Compile Include="Training\Events\TrainingRemoved.cs" />
     <Compile Include="Training\Events\TrainingScheduled.cs" />
     <Compile Include="Training\IScheduleRepository.cs" />

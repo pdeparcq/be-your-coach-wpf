@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using BeYourCoach.Domain.Training;
 using BeYourCoach.Domain.Training.Events;
@@ -11,7 +10,8 @@ namespace BeYourCoach.Caliburn.Training
 {
     public class WeekScheduleViewModel : Conductor<DayScheduleViewModel>.Collection.AllActive, 
         Deparcq.Common.Domain.IHandle<TrainingScheduled>,
-        Deparcq.Common.Domain.IHandle<TrainingRemoved>
+        Deparcq.Common.Domain.IHandle<TrainingRemoved>, 
+        Deparcq.Common.Domain.IHandle<TrainingCompleted>
     {
         public Schedule Schedule { get; }
         public int Week { get; }
@@ -26,6 +26,7 @@ namespace BeYourCoach.Caliburn.Training
             var publisher = IoC.Get<IDomainEventPublisher>();
             publisher.Subscribe(this as Deparcq.Common.Domain.IHandle<TrainingScheduled>);
             publisher.Subscribe(this as Deparcq.Common.Domain.IHandle<TrainingRemoved>);
+            publisher.Subscribe(this as Deparcq.Common.Domain.IHandle<TrainingCompleted>);
 
             Schedule = schedule;
             Week = week;
@@ -47,18 +48,28 @@ namespace BeYourCoach.Caliburn.Training
         public DayScheduleViewModel Saturday { get; private set; }
         public DayScheduleViewModel Sunday { get; private set; }
 
+        public int PercentageCompleted => Trainings.Any() ? Trainings.Count(t => t.Status == TrainingStatus.Done)*100/Trainings.Count() : 0;
+
         public IEnumerable<Domain.Training.Training> Trainings => Schedule.Trainings.OrderBy(t => t.Discipline).Where(t => t.Week == Week);
 
         public void Handle(TrainingScheduled e)
         {
             if (e.Week != Week) return;
             NotifyOfPropertyChange(() => Trainings);
+            NotifyOfPropertyChange(() => PercentageCompleted);
         }
 
         public void Handle(TrainingRemoved e)
         {
             if (e.Week != Week) return;
             NotifyOfPropertyChange(() => Trainings);
+            NotifyOfPropertyChange(() => PercentageCompleted);
+        }
+
+        public void Handle(TrainingCompleted e)
+        {
+            if (e.Week != Week) return;
+            NotifyOfPropertyChange(() => PercentageCompleted);
         }
     }
 }
