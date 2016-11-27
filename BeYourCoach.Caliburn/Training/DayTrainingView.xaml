@@ -13,7 +13,7 @@
             </Grid.RowDefinitions>
             <UniformGrid Rows="1">
                 <Border Name="DescriptionIsVisible">
-                    <TextBox Opacity="0.6" Name="Description" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>    
+                    <TextBox Opacity="0.6" Name="Description" IsReadOnly="{Binding DescriptionIsReadOnly}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>    
                 </Border>
                 <Border Name="RemarksIsVisible">
                     <TextBox Opacity="0.6" Name="Remarks" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>
@@ -34,6 +34,12 @@
                     </Border>
                     <Border Name="PlanTrainingIsVisible">
                         <Button Name="PlanTraining" Content="Plan" Opacity="0.8"></Button>
+                    </Border>
+                    <Border Name="CancelTrainingIsVisible">
+                        <Button Name="CancelTraining" Content="Cancel" Opacity="0.8" Margin="0,0,5,0"></Button>
+                    </Border>
+                    <Border Name="MarkTrainingAsDoneIsVisible">
+                        <Button Name="MarkTrainingAsDone" Content="Done" Opacity="0.8"></Button>
                     </Border>
                 </UniformGrid>
             </Grid>

@@ -42,6 +42,11 @@ namespace BeYourCoach.Domain.Training
             return training;
         }
 
+        public Training GetTraining(Guid trainingId)
+        {
+            return Trainings.Single(t => t.Id == trainingId);
+        }
+
         public void RemoveTraining(Guid trainingId)
         {
             var training = Trainings.Single(t => t.Id == trainingId);

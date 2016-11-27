@@ -9,5 +9,7 @@ namespace BeYourCoach.Application.Training
         Domain.Training.Training ScheduleTraining(Guid scheduleId, int week, IsoDayOfWeek dayOfWeek, Discipline discipline);
         Domain.Training.Training PlanTraining(Guid scheduleId, Guid trainingId, string description);
         void RemoveTraining(Guid scheduleId, Guid trainingId);
+        Domain.Training.Training MarkTrainingAsDone(Guid scheduleId, Guid trainingId, string remarks);
+        Domain.Training.Training CancelTraining(Guid scheduleId, Guid trainingId, string remarks);
     }
 }

@@ -63,6 +63,15 @@ namespace BeYourCoach.Domain.Training
             Remarks = remarks;
         }
 
+        public void Cancel(string remarks)
+        {
+            if (Status != TrainingStatus.Planned && Status != TrainingStatus.Done)
+                throw new ApplicationException("Can not cancel training at this moment");
+
+            Status = TrainingStatus.Cancelled;
+            Remarks = remarks;
+        }
+
         public void ReSchedule(int week, IsoDayOfWeek dayOfWeek)
         {
             Check.If(week).IsGreaterOrEqual(0);
