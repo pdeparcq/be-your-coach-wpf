@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training.Events;
 using Conditions.Guards;
@@ -39,6 +40,13 @@ namespace BeYourCoach.Domain.Training
             Trainings.Add(training);
             Events.Add(new TrainingScheduled(this, training));
             return training;
+        }
+
+        public void RemoveTraining(Guid trainingId)
+        {
+            var training = Trainings.Single(t => t.Id == trainingId);
+            Trainings.Remove(training);
+            Events.Add(new TrainingRemoved(this, training));
         }
     }
 }

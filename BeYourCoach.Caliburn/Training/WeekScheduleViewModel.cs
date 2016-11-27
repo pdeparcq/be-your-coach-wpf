@@ -9,7 +9,9 @@ using NodaTime;
 
 namespace BeYourCoach.Caliburn.Training
 {
-    public class WeekScheduleViewModel : Conductor<DayScheduleViewModel>.Collection.AllActive, Deparcq.Common.Domain.IHandle<TrainingScheduled>
+    public class WeekScheduleViewModel : Conductor<DayScheduleViewModel>.Collection.AllActive, 
+        Deparcq.Common.Domain.IHandle<TrainingScheduled>,
+        Deparcq.Common.Domain.IHandle<TrainingRemoved>
     {
         public Schedule Schedule { get; }
         public int Week { get; }
@@ -21,7 +23,10 @@ namespace BeYourCoach.Caliburn.Training
 
         public WeekScheduleViewModel(Schedule schedule, int week)
         {
-            IoC.Get<IDomainEventPublisher>().Subscribe(this);
+            var publisher = IoC.Get<IDomainEventPublisher>();
+            publisher.Subscribe(this as Deparcq.Common.Domain.IHandle<TrainingScheduled>);
+            publisher.Subscribe(this as Deparcq.Common.Domain.IHandle<TrainingRemoved>);
+
             Schedule = schedule;
             Week = week;
 
@@ -45,6 +50,12 @@ namespace BeYourCoach.Caliburn.Training
         public IEnumerable<Domain.Training.Training> Trainings => Schedule.Trainings.OrderBy(t => t.Discipline).Where(t => t.Week == Week);
 
         public void Handle(TrainingScheduled e)
+        {
+            if (e.Week != Week) return;
+            NotifyOfPropertyChange(() => Trainings);
+        }
+
+        public void Handle(TrainingRemoved e)
         {
             if (e.Week != Week) return;
             NotifyOfPropertyChange(() => Trainings);

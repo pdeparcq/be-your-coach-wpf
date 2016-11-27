@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BeYourCoach.Domain.Registration;
 using BeYourCoach.Domain.Training;
 using Deparcq.Common.Application;
@@ -35,6 +36,28 @@ namespace BeYourCoach.Application.Training
                 var training = schedule.ScheduleTraining(week, dayOfWeek, discipline);
                 ScheduleRepository.Update(schedule);
                 return training;
+            });
+        }
+
+        public Domain.Training.Training PlanTraining(Guid scheduleId, Guid trainingId, string description)
+        {
+            return InUnitOfWork(() =>
+            {
+                var schedule = ScheduleRepository.Get(scheduleId);
+                var training = schedule.Trainings.Single(t => t.Id == trainingId);
+                training.Plan(description);
+                ScheduleRepository.Update(schedule);
+                return training;
+            });
+        }
+
+        public void RemoveTraining(Guid scheduleId, Guid trainingId)
+        {
+            InUnitOfWork(() =>
+            {
+                var schedule = ScheduleRepository.Get(scheduleId);
+                schedule.RemoveTraining(trainingId);
+                ScheduleRepository.Update(schedule);
             });
         }
     }

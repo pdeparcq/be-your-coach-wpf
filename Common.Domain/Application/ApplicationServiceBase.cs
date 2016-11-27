@@ -25,5 +25,20 @@ namespace Deparcq.Common.Application
                 throw;
             }
         }
+
+        protected void InUnitOfWork(Action execute)
+        {
+            try
+            {
+                execute();
+                UnitOfWork.Commit();
+            }
+            catch (Exception)
+            {
+                UnitOfWork.Rollback();
+                throw;
+            }
+        }
+
     }
 }
