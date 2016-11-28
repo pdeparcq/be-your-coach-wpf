@@ -14,6 +14,7 @@ namespace BeYourCoach.Caliburn.Training
         Deparcq.Common.Domain.IHandle<TrainingCompleted>
     {
         public Schedule Schedule { get; }
+        public string ScheduleName => Schedule.Name;
         public int Week { get; }
         public int WeekOfWeekYear => StartDate.WeekOfWeekYear;
         public LocalDate StartDate => Schedule.StartDate.PlusWeeks(Week);

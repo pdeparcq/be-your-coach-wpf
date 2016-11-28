@@ -11,9 +11,14 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Background="Gray">
-            <Label HorizontalAlignment="Center" Foreground="White" FontSize="16" Name="Title" ></Label>
-        </Border>
+        <Grid Background="Gray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Foreground="White" FontSize="16" Name="ScheduleName"></Label>
+            <Label Grid.Column="1" Foreground="White" FontSize="16" Name="Title" ></Label>
+        </Grid>
         <ScrollViewer Grid.Row="1">
             <StackPanel>
                 <ContentControl Name="Monday"></ContentControl>

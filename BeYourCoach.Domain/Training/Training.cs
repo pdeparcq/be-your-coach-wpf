@@ -78,6 +78,8 @@ namespace BeYourCoach.Domain.Training
 
             Week = week;
             DayOfWeek = dayOfWeek;
+            Status = TrainingStatus.Created;
+            Remarks = null;
         }
     }
 }
